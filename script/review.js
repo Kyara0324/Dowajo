@@ -34,22 +34,23 @@ function loadComments() {
     let liked = comment.liked || false;
     const reviewHtml = `
         <div class="commentBox">
-          <div class="profileCircle">${comment.id}</div>
+          <div class="profileCircle"></div>
           
           <div class="profileBox">
-            <div class="timeStamp">${new Date(
-              comment.time
-            ).toLocaleString()}</div> <!--댓글 시간 출력-->
+          <div class="nickname">${comment.id}</div>
+            
             <img class="heart_image" src=${
               liked ? "../img/heart_full.png" : "../img/heart.png"
             } onclick= "toggleLike(${index})" alt="#">
             <p>${comment.comment}</p>
-             
+             <div class="timeStamp">${new Date(
+               comment.time
+             ).toLocaleString()}</div> <!--댓글 시간 출력-->
             <div class="profileEdit">
              
               <div class="textBox">
-              <button onclick="editComment(${index})">수정</button> <!-- 수정 이벤트 -->
-              <button onclick="deleteComment(${index})">삭제</button> <!-- 삭제 이벤트 -->
+              <button class="btn_design" onclick="editComment(${index})">수정</button> <!-- 수정 이벤트 -->
+              <button class="btn_design" onclick="deleteComment(${index})">삭제</button> <!-- 삭제 이벤트 -->
               </div>
             </div>
           </div>

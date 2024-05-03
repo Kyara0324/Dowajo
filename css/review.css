@@ -21,6 +21,7 @@
   display: flex;
   justify-content: center;
   flex: 1;
+  position: relative;
 }
 
 textarea {
@@ -32,11 +33,14 @@ textarea {
 
 .wrap > button {
   width: 100px;
-  height: 105px;
-  background-color: black;
+  height: 100px;
+  background-color: #dd7e5f;
   color: white;
   cursor: pointer;
   font-size: 18px;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #999;
+  border-left: none;
 }
 
 /* 성빈 profile~~~*/
@@ -54,28 +58,34 @@ textarea {
 }
 
 .profileCircle {
-  width: 130px;
-  height: 130px;
-  border: 7px solid rgb(162, 159, 159);
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgb(162, 159, 159);
   border-radius: 50%;
-  background-color: white;
   margin-right: 30px;
   text-align: center;
-  line-height: 125px; /* 나중에 처리 */
   font-size: 30px;
+  background: url(https://unsplash.it/120/?random) no-repeat center center;
 }
 
 .profileBox {
-  border: 1px solid black;
-  border-radius: 0px 0px 10px 10px;
+  border: 1.5px dashed #dd7e5f;
+  border-radius: 10px;
   word-break: break-all;
   flex: 1;
   position: relative;
 }
 
+.nickname {
+  margin: 20px 0 0 20px;
+  width: 145px;
+  font-size: 20px;
+}
+
 .timeStamp {
   margin: 20px;
   font-size: 15px;
+  color: #999;
 }
 
 p {
@@ -96,15 +106,15 @@ p {
   background: none;
   border: none;
   cursor: pointer;
-  right: 10px;
-  top: 10px;
+  right: 20px;
+  top: 20px;
   position: absolute;
 }
 
 .input_css,
 #comment {
   border: 1px solid #999;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #ffebcd;
   text-indent: 8px;
   font-family: "IBM Plex Sans KR", sans-serif;
@@ -113,4 +123,21 @@ p {
 .input_css {
   width: 170px;
   height: 20px;
+}
+
+#comment {
+  border-radius: 10px 0 0 10px;
+  padding-top: 5px;
+  box-sizing: border-box;
+}
+
+.btn_design {
+  width: 40px;
+  height: 30px;
+  border: none;
+  background-color: #dd7e5f;
+  border-radius: 5px;
+  color: #fff;
+  margin-left: 5px;
+  cursor: pointer;
 }
