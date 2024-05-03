@@ -54,7 +54,6 @@ textarea {
 }
 
 .profileBox {
-  height: 130px;
   border: 1px solid black;
   border-radius: 0px 0px 10px 10px;
   word-break: break-all;
