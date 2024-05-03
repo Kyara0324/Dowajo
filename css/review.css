@@ -1,0 +1,93 @@
+.box {
+  width: 1000px;
+  margin: 0 auto 0 auto;
+}
+
+.wrap {
+  margin: 10px auto 50px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+textarea {
+  width: 1000px;
+  height: 100px;
+  resize: none;
+  font-size: 20px;
+}
+
+.wrap > button {
+  width: 100px;
+  height: 105px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* 성빈 profile~~~*/
+
+.profile {
+  display: box;
+  justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 10px; /* 댓글과 댓글 사이의 간격을 줍니다 */
+}
+
+.commentBox {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.profileCircle {
+  width: 130px;
+  height: 130px;
+  border: 2px solid lightgrey;
+  border-radius: 50%;
+  background-color: rgb(168, 168, 168);
+  margin-right: 30px;
+  text-align: center;
+  line-height: 125px; /* 나중에 처리 */
+  font-size: 30px;
+}
+
+.profileBox {
+  height: 130px;
+  border: 1px solid black;
+  border-radius: 0px 0px 10px 10px;
+  word-break: break-all;
+  flex: 1;
+  position: relative;
+}
+
+.timeStamp {
+  margin: 10px 15px 5px 15px;
+}
+
+p {
+  width: 80%;
+  margin-left: 15px;
+}
+
+.profileEdit {
+  right: 10px;
+  bottom: 10px;
+  position: absolute;
+}
+
+.heart-button {
+  font-size: 24px;
+  color: gray;
+  background: none;
+  border: none;
+  cursor: pointer;
+  right: 10px;
+  top: 10px;
+  position: absolute;
+}
+
+.heart-button:hover {
+  color: red;
+}

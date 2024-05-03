@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리뷰작성(임시파일)</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/review.css" />
+  </head>
+  <body>
+    <section class="box">
+      <form id="reviewForm">
+        <input
+          type="text"
+          maxlength="4"
+          id="username"
+          placeholder="닉네임"
+          required
+        />
+        <input
+          type="password"
+          name="pw"
+          id="pw"
+          placeholder="비밀번호"
+          maxlength="8"
+          required
+        />
+
+        <div class="wrap">
+          <textarea
+            id="comment"
+            placeholder="영화 관람 후기를 작성해주세요..."
+            required
+            maxlength="200"
+          ></textarea>
+          <button type="submit" id="reviewBtn">관람평<br />작성</button>
+        </div>
+      </form>
+
+      <hr />
+
+      <div class="profile" id="reviewDiv">
+        <div class="profileCircle"></div>
+        <div class="profileBox"></div>
+      </div>
+    </section>
+    <script src="../script/review.js"></script>
+  </body>
+</html>

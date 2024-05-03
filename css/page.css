@@ -1,0 +1,88 @@
+/* 타이틀 폰트 */
+/* @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=Hahmlet:wght@100..900&family=Jua&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Song+Myung&display=swap"); */
+
+body {
+  background-image: url(../img/detail_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 110px;
+}
+
+/* header부분 */
+header {
+  width: 100%;
+  height: 110px;
+  background-color: #648bcc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#detail_title {
+  width: 290px;
+  height: 65px;
+  margin-left: 40px;
+  padding-top: 35px;
+  background: url(../img/logo.png) no-repeat center;
+  background-size: 250px 65px;
+  font-size: 0;
+  float: left;
+  cursor: pointer;
+}
+
+/* section page부분 */
+.cardBox {
+  width: 100%;
+  height: 800px;
+  /* border: 1px solid red; */
+}
+
+.contentsBox {
+  width: 1450px;
+  height: 75%;
+  margin: 80px auto 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.poster {
+  width: 25%;
+  float: left;
+  margin-left: 20px;
+}
+
+.title_ul {
+  width: 68%;
+  height: 400px;
+  margin-top: 75px;
+  float: right;
+}
+
+.title_ul > li {
+  letter-spacing: 1px;
+}
+
+.title_ul > li:nth-child(1) {
+  font-size: 45px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.title_ul > li:nth-child(2),
+li:nth-child(3),
+li:nth-child(4) {
+  display: inline;
+  margin-right: 40px;
+  font-size: 19px;
+}
+
+.title_ul > li:nth-child(5) {
+  width: 900px;
+  margin-top: 50px;
+  font-size: 23px;
+  line-height: 1.5em;
+}
