@@ -97,3 +97,12 @@ p {
   top: 10px;
   position: absolute;
 }
+
+.input_css {
+  width: 170px;
+  height: 20px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #ffebcd;
+  text-indent: 5px;
+}

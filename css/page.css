@@ -1,5 +1,5 @@
-/* 타이틀 폰트 */
-/* @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=Hahmlet:wght@100..900&family=Jua&family=Nanum+Pen+Script&family=Noto+Serif+KR&family=Song+Myung&display=swap"); */
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap");
 
 body {
   background-image: url(../img/detail_bg.png);
@@ -7,6 +7,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding-top: 110px;
+  font-family: "IBM Plex Sans KR", sans-serif;
 }
 
 /* header부분 */
@@ -35,13 +36,13 @@ header {
 /* section page부분 */
 .cardBox {
   width: 100%;
-  height: 800px;
+  height: 700px;
   /* border: 1px solid red; */
 }
 
 .contentsBox {
   width: 1450px;
-  height: 75%;
+  height: 85%;
   margin: 80px auto 0 auto;
   padding: 30px;
   box-sizing: border-box;

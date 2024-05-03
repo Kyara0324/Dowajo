@@ -48,8 +48,8 @@ function loadComments() {
             <div class="profileEdit">
              
               <div class="textBox">
-                <button onclick="editText()">수정</button>
-                <button onclick="deleteText()">삭제</button>
+              <button onclick="editComment(${index})">수정</button> <!-- 수정 이벤트 -->
+              <button onclick="deleteComment(${index})">삭제</button> <!-- 삭제 이벤트 -->
               </div>
             </div>
           </div>
@@ -101,8 +101,42 @@ document.getElementById("like-button").addEventListener("click", function () {
 //삭제 의사 코드
 //삭제 버튼 클릭-비밀번호 alert창에 입력-localSrorage에서 해당 글의 value값을 불러와(get) 삭제(remove)
 
-// deleteBtn.addEventListener("click", funtion() {
-//   console
-// })
-prompt;
-localStorage.removeItem("username");
+//  댓글 삭제 구현
+function deleteComment(index) {
+  const comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  const commentToDelete = comments[index];
+
+  const inputPassword = prompt("비밀번호를 입력하세요:");
+  if (inputPassword === commentToDelete.password) {
+    comments.splice(index, 1); // 해당 인덱스의 댓글 삭제
+    localStorage.setItem("comments", JSON.stringify(comments)); // 로컬 스토리지에 저장
+    loadComments(); // 업데이트된 댓글을 다시 로드
+    alert("댓글이 삭제되었습니다.");
+  } else {
+    alert("비밀번호가 일치하지 않습니다.");
+  }
+}
+
+// 수정 기능 구현
+function editComment(index) {
+  const comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  const commentToEdit = comments[index];
+
+  const inputPassword = prompt("비밀번호를 입력하세요:");
+  if (inputPassword === commentToEdit.password) {
+    const newComment = prompt(
+      "새로운 댓글 내용을 입력하세요:",
+      commentToEdit.comment
+    );
+    if (newComment !== null && newComment.trim() !== "") {
+      commentToEdit.comment = newComment.trim(); // 댓글 내용 업데이트
+      localStorage.setItem("comments", JSON.stringify(comments)); // 로컬 스토리지에 저장
+      loadComments(); // 업데이트된 댓글을 다시 로드
+      alert("댓글이 수정되었습니다.");
+    } else {
+      alert("수정할 내용을 입력해주세요.");
+    }
+  } else {
+    alert("비밀번호가 일치하지 않습니다.");
+  }
+}
