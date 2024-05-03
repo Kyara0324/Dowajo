@@ -7,6 +7,11 @@
   border-radius: 20px;
 }
 
+.name {
+  width: 1105px;
+  margin: 0 auto;
+}
+
 .wrap {
   margin: 10px auto 50px auto;
   text-align: center;
@@ -34,8 +39,8 @@ textarea {
 /* 성빈 profile~~~*/
 
 .profile {
-  display: box;
-  justify-content: center;
+  width: 1105px;
+  margin: 0 auto;
   margin-top: 70px;
   margin-bottom: 10px; /* 댓글과 댓글 사이의 간격을 줍니다 */
 }
@@ -48,9 +53,9 @@ textarea {
 .profileCircle {
   width: 130px;
   height: 130px;
-  border: 2px solid lightgrey;
+  border: 7px solid rgb(162, 159, 159);
   border-radius: 50%;
-  background-color: rgb(168, 168, 168);
+  background-color: white;
   margin-right: 30px;
   text-align: center;
   line-height: 125px; /* 나중에 처리 */
@@ -66,12 +71,15 @@ textarea {
 }
 
 .timeStamp {
-  margin: 10px 15px 5px 15px;
+  margin: 20px;
+  font-size: 15px;
 }
 
 p {
+  font-size: 20px;
   width: 80%;
-  margin-left: 15px;
+  margin: 20px;
+  line-height: 30px;
 }
 
 .profileEdit {
@@ -80,17 +88,12 @@ p {
   position: absolute;
 }
 
-.heart-button {
+#heart_button {
   font-size: 24px;
-  color: gray;
   background: none;
   border: none;
   cursor: pointer;
   right: 10px;
   top: 10px;
   position: absolute;
-}
-
-.heart-button:hover {
-  color: red;
 }

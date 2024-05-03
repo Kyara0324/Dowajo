@@ -24,6 +24,12 @@ function loadComments() {
   reviewDiv.innerHTML = ""; // 기존 댓글창 초기화
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   comments.forEach((comment) => {
+    let test = true;
+    const testFucn = () => {
+      console.log("dndnd");
+      test = !test;
+      console.log(test);
+    };
     const reviewHtml = `
         <div class="commentBox">
           <div class="profileCircle">${comment.id}</div>
@@ -32,9 +38,11 @@ function loadComments() {
             <div class="timeStamp">${new Date(
               comment.time
             ).toLocaleString()}</div> <!--댓글 시간 출력-->
-            <button class="heart-button" onclick="likeToggle(this)">
-                <i class="fa fa-heart"></i>
-              </button>
+            <button id="heart_button" onclick="console.log(test);test = false;console.log(test)">
+              <img id="image" src=${
+                test ? "../img/heart.png" : "../img/heart_full.png"
+              } alt="#">
+            </button>
             <p>${comment.comment}</p>
              
             <div class="profileEdit">
@@ -67,3 +75,34 @@ reviewForm.addEventListener("submit", (e) => {
 window.onload = function () {
   loadComments(); // 페이지 로드 시 저장된 댓글을 불러와서 화면에 출력
 };
+
+//하트버튼 누르면 이미지변경
+const image = document.getElementById("image"); //이미지
+
+heartBtn.addEventListener("click", function () {
+  image.src = "../img/heart_full.png";
+});
+
+// 예시
+document.getElementById("like-button").addEventListener("click", function () {
+  const likeButton = this;
+  const likeCount = document.getElementById("like-count");
+
+  if (likeButton.classList.contains("liked")) {
+    likeButton.classList.remove("liked"); // 좋아요 해제
+    likeCount.textContent = parseInt(likeCount.textContent) - 1; // 좋아요 수 감소
+  } else {
+    likeButton.classList.add("liked"); // 좋아요 추가
+    likeCount.textContent = parseInt(likeCount.textContent) + 1; // 좋아요 수 증가
+  }
+});
+//-----------------------------------------------------------------------------------------------------------------------
+
+//삭제 의사 코드
+//삭제 버튼 클릭-비밀번호 alert창에 입력-localSrorage에서 해당 글의 value값을 불러와(get) 삭제(remove)
+
+// deleteBtn.addEventListener("click", funtion() {
+//   console
+// })
+prompt;
+localStorage.removeItem("username");
