@@ -88,7 +88,7 @@ p {
   position: absolute;
 }
 
-#heart_button {
+.heart_image {
   font-size: 24px;
   background: none;
   border: none;

@@ -6,6 +6,13 @@ const password = document.getElementById("pw");
 const comment = document.getElementById("comment");
 const reviewBtn = document.getElementById("reviewBtn");
 
+function toggleLike(index) {
+  const comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  comments[index].liked = !comments[index].liked; // 좋아요 상태 변경
+  localStorage.setItem("comments", JSON.stringify(comments)); // 변경된 댓글 저장
+  loadComments(); // 댓글 다시 불러와서 UI 업데이트
+}
+
 // 댓글 저장 함수
 function saveComments() {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]"); // 저장된 댓글을 배열로 파싱하거나, 없으면 새 배열 할당
@@ -23,13 +30,8 @@ function saveComments() {
 function loadComments() {
   reviewDiv.innerHTML = ""; // 기존 댓글창 초기화
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
-  comments.forEach((comment) => {
-    let test = true;
-    const testFucn = () => {
-      console.log("dndnd");
-      test = !test;
-      console.log(test);
-    };
+  comments.forEach((comment, index) => {
+    let liked = comment.liked || false;
     const reviewHtml = `
         <div class="commentBox">
           <div class="profileCircle">${comment.id}</div>
@@ -38,11 +40,9 @@ function loadComments() {
             <div class="timeStamp">${new Date(
               comment.time
             ).toLocaleString()}</div> <!--댓글 시간 출력-->
-            <button id="heart_button" onclick="console.log(test);test = false;console.log(test)">
-              <img id="image" src=${
-                test ? "../img/heart.png" : "../img/heart_full.png"
-              } alt="#">
-            </button>
+            <img class="heart_image" src=${
+              liked ? "../img/heart_full.png" : "../img/heart.png"
+            } onclick= "toggleLike(${index})" alt="#">
             <p>${comment.comment}</p>
              
             <div class="profileEdit">
