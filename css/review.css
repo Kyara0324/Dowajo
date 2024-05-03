@@ -1,3 +1,6 @@
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap");
+
 .box {
   width: 1450px;
   margin: 0 auto 0 auto;
@@ -98,11 +101,16 @@ p {
   position: absolute;
 }
 
-.input_css {
-  width: 170px;
-  height: 20px;
+.input_css,
+#comment {
   border: 1px solid #999;
   border-radius: 5px;
   background-color: #ffebcd;
-  text-indent: 5px;
+  text-indent: 8px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+} /* 디자인 공통 */
+
+.input_css {
+  width: 170px;
+  height: 20px;
 }
