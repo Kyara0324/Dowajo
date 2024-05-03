@@ -47,6 +47,7 @@ header {
   box-sizing: border-box;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
 }
 
 .poster {

@@ -1,6 +1,10 @@
 .box {
-  width: 1000px;
+  width: 1450px;
   margin: 0 auto 0 auto;
+  padding: 30px;
+  background-color: rgb(255, 255, 255, 0.8);
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 
 .wrap {
