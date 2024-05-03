@@ -96,10 +96,6 @@ document.getElementById("like-button").addEventListener("click", function () {
     likeCount.textContent = parseInt(likeCount.textContent) + 1; // 좋아요 수 증가
   }
 });
-//-----------------------------------------------------------------------------------------------------------------------
-
-//삭제 의사 코드
-//삭제 버튼 클릭-비밀번호 alert창에 입력-localSrorage에서 해당 글의 value값을 불러와(get) 삭제(remove)
 
 //  댓글 삭제 구현
 function deleteComment(index) {
