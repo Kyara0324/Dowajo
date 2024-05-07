@@ -5,7 +5,6 @@ const URLSearch = new URLSearchParams(location.search);
 function searchParam(key) {
   return new URLSearchParams(location.search).get(key);
 }
-console.log(searchParam("id"));
 
 const detailCard = document.getElementById("page");
 
@@ -16,7 +15,6 @@ function detailload() {
   )
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
       const movie_title = response.title;
       const movie_vote = response.vote_average;
       const movie_date = response.release_date;
