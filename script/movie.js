@@ -55,9 +55,4 @@ function Btn() {
       });
     });
 }
-/*
-function alertCard(id) {
-  //alert(`영화 ID : ${id}`);
-  window.location.href = "page.html?" + id;
-}
-*/
+
