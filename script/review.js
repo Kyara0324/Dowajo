@@ -80,25 +80,7 @@ window.onload = function () {
 };
 
 //하트버튼 누르면 이미지변경
-const image = document.getElementById("image"); //이미지
 
-heartBtn.addEventListener("click", function () {
-  image.src = "../img/heart_full.png";
-});
-
-// 예시
-document.getElementById("like-button").addEventListener("click", function () {
-  const likeButton = this;
-  const likeCount = document.getElementById("like-count");
-
-  if (likeButton.classList.contains("liked")) {
-    likeButton.classList.remove("liked"); // 좋아요 해제
-    likeCount.textContent = parseInt(likeCount.textContent) - 1; // 좋아요 수 감소
-  } else {
-    likeButton.classList.add("liked"); // 좋아요 추가
-    likeCount.textContent = parseInt(likeCount.textContent) + 1; // 좋아요 수 증가
-  }
-});
 
 //  댓글 삭제 구현
 function deleteComment(index) {
