@@ -17,10 +17,14 @@ h3 {
 }
 
 body {
-  background-image: url(../img/배경.jpg);
+  background-image: url(../img/main_bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
 }
 
 .header {
@@ -41,11 +45,6 @@ body {
   font-weight: 400;
   font-style: normal;
   margin: 0;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-use-select: none;
-  user-select: none;
 }
 
 #lang_btn {
@@ -73,6 +72,9 @@ button {
   background-color: black;
   color: beige;
   cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 span {
@@ -80,7 +82,11 @@ span {
   -webkit-text-stroke: 1px black;
 }
 
-input {
+.search_wrap {
+  position: relative;
+}
+
+#search {
   border: 0;
   height: 30px;
   font-size: 15px;
@@ -88,6 +94,9 @@ input {
   outline: none;
   padding-left: 20px;
   color: rgb(0, 0, 0);
+  position: absolute;
+  top: 0;
+  right: 660px;
 }
 
 section {
