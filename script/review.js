@@ -1,6 +1,7 @@
+//Html 아이디 가져오기
 const reviewForm = document.getElementById("reviewForm");
 const reviewDiv = document.getElementById("reviewDiv");
-
+//리뷰 작성 input value 값
 const Id = document.getElementById("username");
 const password = document.getElementById("pw");
 const comment = document.getElementById("comment");
@@ -9,7 +10,7 @@ const reviewBtn = document.getElementById("reviewBtn");
 function toggleLike(index) {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   comments[index].liked = !comments[index].liked; // 좋아요 상태 변경
-  localStorage.setItem("comments", JSON.stringify(comments)); // 변경된 댓글 저장
+  localStorage.setItem("comments", JSON.stringify(comments)); //댓글 문자열로 변환하여 저장하기
   loadComments(); // 댓글 다시 불러와서 UI 업데이트
 }
 
@@ -103,32 +104,37 @@ function editComment(index) {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   const commentToEdit = comments[index];
 
-  const inputPassword = prompt("비밀번호를 입력하세요.");
+  const inputPassword = prompt("비밀번호를 입력하세요."); // 비밀번호 요청
   if (inputPassword === null) {
-    alert("취소되었습니다."); // 사용자가 취소 버튼을 누르면 메시지 출력
+    // 사용자가 취소를 선택한 경우
+    alert("취소되었습니다.");
     return;
   }
 
-  if (inputPassword === commentToEdit.password) {
-    const newComment = prompt(
-      "새로운 댓글 내용을 입력하세요.",
-      commentToEdit.comment
-    );
-
-    if (newComment === null) {
-      alert("취소되었습니다."); // 사용자가 두 번째 prompt에서 취소를 누르면 메시지 출력
-      return;
-    }
-
-    if (newComment.trim() !== "") {
-      commentToEdit.comment = newComment.trim(); // 댓글 내용 업데이트
-      // localStorage에 저장
-      loadComments(); // 업데이트된 댓글을 다시 로드
-      alert("댓글이 수정되었습니다.");
-    } else {
-      alert("수정할 내용을 입력해주세요.");
-    }
-  } else {
+  if (inputPassword !== commentToEdit.password) {
+    // 비밀번호 불일치 시
     alert("비밀번호가 일치하지 않습니다.");
+    return;
   }
+
+  const newComment = prompt(
+    "새로운 댓글 내용을 입력하세요.",
+    commentToEdit.comment
+  ); // 새 댓글 내용 요청
+  if (newComment === null) {
+    // 사용자가 취소를 선택한 경우
+    alert("취소되었습니다.");
+    return;
+  }
+
+  if (newComment.trim() === "") {
+    // 공백 또는 빈 문자열 입력 시
+    alert("수정할 내용을 입력해주세요.");
+    return;
+  }
+
+  commentToEdit.comment = newComment.trim(); // 댓글 내용 업데이트
+  localStorage.setItem("comments", JSON.stringify(comments)); // 로컬 스토리지에 저장
+  loadComments(); // 업데이트된 댓글을 다시 로드
+  alert("댓글이 수정되었습니다."); // 수정 완료 메시지
 }

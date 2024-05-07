@@ -3,12 +3,13 @@ import { options } from "./fetch.js";
 const URLSearch = new URLSearchParams(location.search);
 
 function searchParam(key) {
-  return new URLSearchParams(location.search).get(key);
+  return URLSearch.get(key); //query string으로 담아놓고 영화id값을 get해서 가져오기
 }
 
 const detailCard = document.getElementById("page");
 
-function detailload() {
+// 상세페이지 내용 불러오기
+function detailLoad() {
   fetch(
     `https://api.themoviedb.org/3/movie/${searchParam("id")}?language=ko-KR`,
     options
@@ -38,4 +39,4 @@ function detailload() {
       detailCard.innerHTML = detail_contents;
     });
 }
-detailload();
+detailLoad();

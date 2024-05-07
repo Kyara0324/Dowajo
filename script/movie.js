@@ -1,12 +1,11 @@
-import { options } from "./fetch.js";
+import { options } from "./fetch.js"; //fetch 가져오기
 
-let lang = "ko-KR";
-
-let langBtn = document.getElementById("lang_btn");
+let lang = "ko-KR"; //기본 언어를 lang 이라는 변수에 저장
+let langBtn = document.getElementById("lang_btn"); //lang_btn에 index 아이디 가져옴
 
 langBtn.addEventListener("click", () => {
-  lang = lang === "ko-KR" ? "en-US" : "ko-KR";
-  Btn();
+  lang = lang === "ko-KR" ? "en-US" : "ko-KR"; //ko-KR랑 같으면 앞의 en-US, 다르면 ko-KR
+  Btn(); //버튼을 누를때마다 새로고침 되게 하기 위해 Btn이라는 함수를 넣음
 });
 
 Btn();
