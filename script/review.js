@@ -22,10 +22,12 @@ function searchParam(key) {
 
 // 댓글 저장 함수
 function saveComments() {
+  console.log(password.value);
   const comments = JSON.parse(localStorage.getItem("comments") || "[]"); // 저장된 댓글을 배열로 파싱하거나, 없으면 새 배열 할당
   const newComment = {
     movieId: searchParam("id"),
     id: Id.value,
+    reviewId: Math.random() * 100000,
     password: password.value,
     comment: comment.value,
     time: new Date().toISOString(), // 댓글 작성 시간 추가
@@ -126,7 +128,8 @@ function editComment(index) {
     alert("취소되었습니다.");
     return;
   }
-
+  console.log(inputPassword);
+  console.log(commentToEdit.password);
   if (inputPassword !== commentToEdit.password) {
     // 비밀번호 불일치 시
     alert("비밀번호가 일치하지 않습니다.");
