@@ -84,8 +84,7 @@ reviewForm.addEventListener("submit", (e) => {
 window.onload = function () {
   loadComments(); // 페이지 로드 시 저장된 댓글을 불러와서 화면에 출력
 };
-
-//  댓글 삭제 구현
+// 댓글 삭제 기능 구현
 function deleteComment(index) {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   console.log(index);
@@ -153,4 +152,40 @@ function editComment(index) {
   localStorage.setItem("comments", JSON.stringify(comments)); // 로컬 스토리지에 저장
   loadComments(); // 업데이트된 댓글을 다시 로드
   alert("댓글이 수정되었습니다."); // 수정 완료 메시지
+}
+
+function editComment(index) {
+  const comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  const commentToEdit = comments[index];
+
+  const inputPassword = prompt("비밀번호를 입력하세요.");
+  if (inputPassword === null) {
+    alert("취소되었습니다."); // 사용자 취소 시
+    return;
+  }
+
+  if (inputPassword !== commentToEdit.password) {
+    alert("비밀번호가 일치하지 않습니다."); // 비밀번호 불일치 시
+    return;
+  }
+
+  const newComment = prompt(
+    "새로운 댓글 내용을 입력하세요.",
+    commentToEdit.comment
+  );
+
+  if (newComment === null) {
+    alert("취소되었습니다."); // 사용자가 두 번째 prompt에서 취소를 누르면
+    return;
+  }
+
+  if (newComment.trim() === "") {
+    alert("수정할 내용을 입력해주세요."); // 공란 입력 시
+    return;
+  }
+
+  commentToEdit.comment = newComment.trim(); // 댓글 내용 업데이트
+  localStorage.setItem("comments", JSON.stringify(comments)); // 업데이트된 댓글을 localStorage에 저장
+  loadComments(); // 업데이트된 댓글을 다시 로드
+  alert("댓글이 수정되었습니다.");
 }
