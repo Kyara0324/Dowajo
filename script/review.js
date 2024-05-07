@@ -6,20 +6,13 @@ const password = document.getElementById("pw");
 const comment = document.getElementById("comment");
 const reviewBtn = document.getElementById("reviewBtn");
 
-function toggleLike(index) {
-  const comments = JSON.parse(localStorage.getItem("comments") || "[]");
-  comments[index].liked = !comments[index].liked; // 좋아요 상태 변경
-  localStorage.setItem("comments", JSON.stringify(comments)); // 변경된 댓글 저장
-  loadComments(); // 댓글 다시 불러와서 UI 업데이트
-}
-
 const URLSearch = new URLSearchParams(location.search);
 
 function searchParam(key) {
   return URLSearch.get(key); //query string으로 담아놓고 영화id값을 get해서 가져오기
 }
 
-// 댓글 저장 함수
+// 댓글 input 값 localStorage에 저장 함수
 function saveComments() {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]"); // 저장된 댓글을 배열로 파싱하거나, 없으면 새 배열 할당
   const newComment = {
@@ -113,6 +106,7 @@ function deleteComment(index) {
   }
 }
 
+// 댓글 수정 기능 구현
 function editComment(index) {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   const commentFilter = comments.filter(
@@ -156,3 +150,30 @@ function editComment(index) {
   alert("댓글이 수정되었습니다."); // 수정 완료 메시지
 }
 
+
+// 좋아요 상태 토글 함수
+function toggleLike(index) {
+  const comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  const filteredComments = comments.filter(
+    (comment) => comment.movieId === searchParam("id")
+  );
+
+  // 원하는 인덱스의 댓글의 좋아요 상태를 변경합니다.
+  filteredComments[index].liked = !filteredComments[index].liked;
+
+  // 전체 댓글 목록에 필터링된 목록을 다시 업데이트합니다.
+  comments.forEach((comment, i) => {
+    const filteredComment = filteredComments.find(
+      (fComment) => fComment.time === comment.time
+    );
+    if (filteredComment) {
+      comments[i] = filteredComment;
+    }
+  });
+
+  // 로컬 스토리지에 다시 저장
+  localStorage.setItem("comments", JSON.stringify(comments));
+
+  // 댓글 다시 불러와서 UI 업데이트
+  loadComments();
+}
