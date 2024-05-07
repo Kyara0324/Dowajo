@@ -1,3 +1,4 @@
+//요소선택:page.html의 각 id를 사용하여 스크립트로 가져오기
 const reviewForm = document.getElementById("reviewForm");
 const reviewDiv = document.getElementById("reviewDiv");
 
@@ -6,6 +7,7 @@ const password = document.getElementById("pw");
 const comment = document.getElementById("comment");
 const reviewBtn = document.getElementById("reviewBtn");
 
+//좋아요 기능
 function toggleLike(index) {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   comments[index].liked = !comments[index].liked; // 좋아요 상태 변경
@@ -13,7 +15,7 @@ function toggleLike(index) {
   loadComments(); // 댓글 다시 불러와서 UI 업데이트
 }
 
-// 댓글 저장 함수
+// 댓글 저장
 function saveComments() {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]"); // 저장된 댓글을 배열로 파싱하거나, 없으면 새 배열 할당
   const newComment = {
@@ -61,10 +63,10 @@ function loadComments() {
 
 // 댓글 작성 이벤트 리스너
 reviewForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault(); //폼 제출 기본 동작 막기
   if (comment.value === "") {
     alert("후기를 작성해주세요!");
-    comment.focus();
+    comment.focus(); // 댓글내용이 공란인 경우 경고 메세지와 입력필드에 포커스 주기
     return;
   } else {
     saveComments(); // 댓글 저장
@@ -103,7 +105,7 @@ function deleteComment(index) {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   const commentToDelete = comments[index];
 
-  const inputPassword = prompt("비밀번호를 입력하세요:");
+  const inputPassword = prompt("비밀번호를 입력하세요.");
   if (inputPassword === commentToDelete.password) {
     comments.splice(index, 1); // 해당 인덱스의 댓글 삭제
     localStorage.setItem("comments", JSON.stringify(comments)); // 로컬 스토리지에 저장
@@ -119,10 +121,10 @@ function editComment(index) {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   const commentToEdit = comments[index];
 
-  const inputPassword = prompt("비밀번호를 입력하세요:");
+  const inputPassword = prompt("비밀번호를 입력하세요.");
   if (inputPassword === commentToEdit.password) {
     const newComment = prompt(
-      "새로운 댓글 내용을 입력하세요:",
+      "새로운 댓글 내용을 입력하세요.",
       commentToEdit.comment
     );
     if (newComment !== null && newComment.trim() !== "") {
