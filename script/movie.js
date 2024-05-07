@@ -2,7 +2,7 @@ import { options } from "./fetch.js";
 
 let lang = "ko-KR";
 
-let langBtn = document.getElementById("logn_btn");
+let langBtn = document.getElementById("lang_btn");
 
 langBtn.addEventListener("click", () => {
   lang = lang === "ko-KR" ? "en-US" : "ko-KR";
@@ -55,9 +55,4 @@ function Btn() {
       });
     });
 }
-/*
-function alertCard(id) {
-  //alert(`영화 ID : ${id}`);
-  window.location.href = "page.html?" + id;
-}
-*/
+

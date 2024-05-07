@@ -77,17 +77,7 @@ window.onload = function () {
   loadComments(); // 페이지 로드 시 저장된 댓글을 불러와서 화면에 출력
 };
 
-//하트버튼 누르면 이미지변경
-const image = document.getElementById("image"); //이미지
-
-heartBtn.addEventListener("click", function () {
-  image.src = "../img/heart_full.png";
-});
-
-//삭제 의사 코드
-//삭제 버튼 클릭-비밀번호 alert창에 입력-localSrorage에서 해당 글의 value값을 불러와(get) 삭제(remove)
-
-// 댓글 삭제 기능 구현
+//  댓글 삭제 구현
 function deleteComment(index) {
   const comments = JSON.parse(localStorage.getItem("comments") || "[]");
   const commentToDelete = comments[index];
