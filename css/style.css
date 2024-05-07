@@ -61,6 +61,8 @@ form {
   font-weight: 400px;
   font-style: normal;
   font-size: 30px;
+  justify-content: center;
+  display: flex;
 }
 
 button {
@@ -72,18 +74,11 @@ button {
   background-color: black;
   color: beige;
   cursor: pointer;
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 span {
   color: beige;
   -webkit-text-stroke: 1px black;
-}
-
-.search_wrap {
-  position: relative;
 }
 
 #search {
@@ -94,9 +89,7 @@ span {
   outline: none;
   padding-left: 20px;
   color: rgb(0, 0, 0);
-  position: absolute;
-  top: 0;
-  right: 660px;
+  margin: 0 10px;
 }
 
 section {

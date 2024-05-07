@@ -43,13 +43,11 @@ textarea {
   border-left: none;
 }
 
-/* 성빈 profile~~~*/
-
 .profile {
   width: 1105px;
   margin: 0 auto;
   margin-top: 70px;
-  margin-bottom: 10px; /* 댓글과 댓글 사이의 간격을 줍니다 */
+  margin-bottom: 10px;
 }
 
 .commentBox {
