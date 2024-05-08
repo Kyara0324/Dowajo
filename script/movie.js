@@ -33,6 +33,7 @@ function Btn() {
                 <div class="front">
                 <img src='https://image.tmdb.org/t/p/w300${data.poster_path}' alt="${data.title}">
                 <h3>${data.title}</h3>
+                <p class="card_content">click!</p>
                 </div>
               </div>  
               </a>
