@@ -23,12 +23,12 @@ header {
 }
 
 #detail_title {
-  width: 290px;
+  width: 322px;
   height: 65px;
-  margin-left: 40px;
-  padding-top: 35px;
+  margin-left: 35px;
+  margin-top: 23px;
   background: url(../img/logo.png) no-repeat center;
-  background-size: 250px 65px;
+  background-size: 322px 68px;
   font-size: 0;
   float: left;
   cursor: pointer;
